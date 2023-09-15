@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const SearchBox = ({ onSearch }) => {
   const handleInputChange = (event) => {
     const searchTerm = event.target.value;

@@ -1,0 +1,7 @@
+.header {
+    background-color: #f3ce13;
+    color: white;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }

@@ -5,6 +5,7 @@ import SearchBox from "../components/SearchBox";
 const FilmsContainer = () => {
   const [films, setFilms] = useState([]);
   const [searchFilm, setSearchFilm] = useState("");
+  const [selectedFilm, setSelectedFilm] = useState("")
 
   const handleSearch = (searchTerm) => {
     setSearchFilm(searchTerm);
@@ -16,10 +17,17 @@ const FilmsContainer = () => {
       .then((data) => setFilms(data.description));
   };
 
+  const handleSelection = (selected) => {
+    setSelectedFilm(selected)
+    fetch(`https://search.imdbot.workers.dev/?tt=${selected}`)
+    .then(response => response.json())
+    .then(data => setFilms(data))
+  } ;
+
   return (
     <>
-      <SearchBox onSearch={handleSearch} />
-      <FilmsList films={films} />
+      <SearchBox onSearch={handleSearch}/>
+      <FilmsList films={films} onFilmSelected={handleSelection}/>
     </>
   );
 };
