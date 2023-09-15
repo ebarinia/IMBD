@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import FilmsList from "../components/FilmsList";
 import SearchBox from "../components/SearchBox";
+import Header from "../components/header";
+import WatchlistList from "../components/WatchlistList";
 
 const FilmsContainer = () => {
   const [films, setFilms] = useState([]);
@@ -26,8 +28,14 @@ const FilmsContainer = () => {
 
   return (
     <>
-      <SearchBox onSearch={handleSearch} onType={handleType}/>
-      <FilmsList films={films}/>
+        <Header/>
+        <div className="list-container">
+            <div className="film-list">
+                <SearchBox onSearch={handleSearch} onType={handleType}/>
+                <FilmsList films={films}/>
+            </div>
+                <WatchlistList/>
+        </div>
     </>
   );
 };

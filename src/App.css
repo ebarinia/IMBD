@@ -40,12 +40,15 @@ button {
   text-align: left;
 }
 
-.containers {
+.films-list {
+  text-align: center;
+}
+
+.lists-container {
   display: flex;
   justify-content: space-between;
 }
 
-.films-container,
-.watchlist-container {
+.film-list, .watchlist-list {
   width: 50%;
 }
