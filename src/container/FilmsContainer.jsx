@@ -7,11 +7,17 @@ import WatchlistList from "../components/WatchlistList";
 const FilmsContainer = () => {
   const [films, setFilms] = useState([]);
   const [searchFilm, setSearchFilm] = useState("");
-  const [watchlist, setWatchlist] = useState("")
+  const [watchlist, setWatchlist] = useState([])
 
-//   const addToWatchlist = (film) => {
-//     setWatchlist[(...watchlist, film)];
-//   }
+  const addToWatchlist = (film) => {
+    setWatchlist((currentWatchlist) => {
+      if (!currentWatchlist.some(watchlistFilm => watchlistFilm["#TITLE"] === film["#TITLE"])) {
+        return [...currentWatchlist, film];
+      } else {
+        return currentWatchlist;
+      }
+    });
+  };
 
   const handleType = (searchTerm) => {
     setSearchFilm(searchTerm);
@@ -26,13 +32,16 @@ const FilmsContainer = () => {
 
   return (
     <>
-        <Header/>
-        <div className="flex-container">
-            <div className="film-list half-width">
+    <nav className="navbar">
+        <h1>IMBd</h1>
+    </nav>
+        {/* <Header/> */}
+        <div className="list-container">
+            <div className="">
                 <SearchBox onSearch={handleSearch} onType={handleType}/>
-                <FilmsList films={films}/>
+                <FilmsList films={films} onAddToWatchList={addToWatchlist}/>
             </div>
-                {watchlist ? <WatchlistList watchlist={watchlist} className='half-width'/> : null}
+                {watchlist.length > 0 ? <WatchlistList watchlist={watchlist}/> : null}
         </div>
     </>
   );

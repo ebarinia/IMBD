@@ -1,10 +1,10 @@
-const Film = ({ film, index }) => {
+const Film = ({ film, index, onAddToWatchList }) => {
 
     const handleClick = function() {
-        console.log(`added ${film["#AKA"]}to the watchlist`)
+        onAddToWatchList(film)
     }
   return (
-    <li className="film-list">
+    <li className="">
       <img src={film["#IMG_POSTER"]} alt="film poster"></img>
       <div className="text-container">
         <h3>{film["#AKA"]}</h3>
@@ -13,7 +13,7 @@ const Film = ({ film, index }) => {
           <button>More info</button>
         </a>
         <div>
-          <button onClick={handleClick} className="add-watchlist">Add to Watchlist</button>
+        <button onClick={handleClick} className="add-watchlist">Add to Watchlist</button>
         </div>
       </div>
     </li>

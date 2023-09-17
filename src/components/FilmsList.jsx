@@ -1,8 +1,8 @@
 import Film from "./Film";
 
-const FilmsList = ({ films }) => {
+const FilmsList = ({ films, onAddToWatchList }) => {
   const filmsItem = films.map((film, index) => {
-    return <Film key={index} film={film} index={index}/>;
+    return <Film key={index} film={film} index={index} onAddToWatchList={onAddToWatchList}/>;
   });
 
   return (

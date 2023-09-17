@@ -1,3 +1,5 @@
+// import { FaSearch } from "react-icons/fa"
+
 const SearchBox = ({onType, onSearch}) => {
   const handleInputType = (event) => {
     onType(event.target.value);
