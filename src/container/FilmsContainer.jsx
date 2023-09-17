@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import FilmsList from "../components/FilmsList";
 import SearchBox from "../components/SearchBox";
-import Header from "../components/header";
 import WatchlistList from "../components/WatchlistList";
 
 const FilmsContainer = () => {
@@ -35,7 +34,6 @@ const FilmsContainer = () => {
     <nav className="navbar">
         <h1>IMBd</h1>
     </nav>
-        {/* <Header/> */}
         <div className="list-container">
             <div className="">
                 <SearchBox onSearch={handleSearch} onType={handleType}/>
