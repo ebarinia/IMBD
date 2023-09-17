@@ -32,7 +32,7 @@ button {
 
 .search-input {
   margin-top: 3%;
-  padding: 10px;
+  padding: 12px;
 }
 
 .text-container {
@@ -40,15 +40,8 @@ button {
   text-align: left;
 }
 
-.films-list {
-  text-align: center;
-}
-
-.lists-container {
+.flex-container {
   display: flex;
   justify-content: space-between;
-}
-
-.film-list, .watchlist-list {
-  width: 50%;
+  max-width: 55%;
 }

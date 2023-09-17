@@ -6,7 +6,7 @@ const SearchBox = ({onType, onSearch}) => {
 const SearchSubmit = (event) => {
     event.preventDefault();
     onSearch()
-};
+}
 
   return (
     <form

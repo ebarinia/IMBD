@@ -1,4 +1,8 @@
 const Film = ({ film, index }) => {
+
+    const handleClick = function() {
+        console.log(`added ${film["#AKA"]}to the watchlist`)
+    }
   return (
     <li className="film-list">
       <img src={film["#IMG_POSTER"]} alt="film poster"></img>
@@ -6,13 +10,12 @@ const Film = ({ film, index }) => {
         <h3>{film["#AKA"]}</h3>
         <h5>Starring: {film["#ACTORS"]}</h5>
         <a href={film["#IMDB_URL"]} target="_blank">
-        <button>More info</button>
+          <button>More info</button>
         </a>
         <div>
-        <button className="add-watchlist">Add to Watchlist</button>
+          <button onClick={handleClick} className="add-watchlist">Add to Watchlist</button>
         </div>
       </div>
-      <a href={film["#IMDB_URL"]}></a>
     </li>
   );
 };

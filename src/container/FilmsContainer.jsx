@@ -7,7 +7,11 @@ import WatchlistList from "../components/WatchlistList";
 const FilmsContainer = () => {
   const [films, setFilms] = useState([]);
   const [searchFilm, setSearchFilm] = useState("");
-//   const [selectedFilm, setSelectedFilm] = useState("")
+  const [watchlist, setWatchlist] = useState("")
+
+//   const addToWatchlist = (film) => {
+//     setWatchlist[(...watchlist, film)];
+//   }
 
   const handleType = (searchTerm) => {
     setSearchFilm(searchTerm);
@@ -18,23 +22,17 @@ const FilmsContainer = () => {
         .then((response) => response.json())
         .then((data) => setFilms(data.description));
   };
-  
-//   const handleSelection = (selected) => {
-//     setSelectedFilm(selected)
-//     fetch(`https://search.imdbot.workers.dev/?tt=${selected}`)
-//     .then(response => response.json())
-//     .then(data => setFilms(data))
-//   } ;
+
 
   return (
     <>
         <Header/>
-        <div className="list-container">
-            <div className="film-list">
+        <div className="flex-container">
+            <div className="film-list half-width">
                 <SearchBox onSearch={handleSearch} onType={handleType}/>
                 <FilmsList films={films}/>
             </div>
-                <WatchlistList/>
+                {watchlist ? <WatchlistList watchlist={watchlist} className='half-width'/> : null}
         </div>
     </>
   );
